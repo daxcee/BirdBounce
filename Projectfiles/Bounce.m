@@ -89,7 +89,7 @@ bool box1Touched = false;
             box1Touched = true;
         }
         
-        CCLOG(@"Does it work?");
+        CCLOG(@"Does it work? I think it did!");
     }
     
 }
