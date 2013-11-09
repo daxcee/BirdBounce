@@ -88,6 +88,8 @@ bool box1Touched = false;
         if (x >= x1 && x <= x2 && y >= y1 && y <= y2 && distance <= maxDistance) {
             box1Touched = true;
         }
+        
+        CCLOG(@"Ball has been touched");
     }
     
 }
