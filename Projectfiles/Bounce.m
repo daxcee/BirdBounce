@@ -89,7 +89,7 @@ bool box1Touched = false;
             box1Touched = true;
         }
         
-        CCLOG(@"Ball has been touched");
+        CCLOG(@"Does it work?");
     }
     
 }
