@@ -16,7 +16,7 @@ bool box1Touched = false;
 {
 	if ((self = [super init]))
 	{
-        CCSprite *sprite = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
         sprite.anchorPoint = CGPointZero;
         [self addChild:sprite z:-1];
         
