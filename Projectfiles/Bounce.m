@@ -21,24 +21,24 @@ bool box1Touched = false;
         [self addChild:sprite z:-1];
         
         // Add ball 1 to screen
-        ball1 = [CCSprite spriteWithFile:@"redball.png"];
+        ball1 = [CCSprite spriteWithFile:@"upbird.png"];
         ball1.position = ccp(320/7, 420);
-        [self addChild:ball1];
+        [self addChild:ball1 z:2];
         
         // Initialize box 1
-        box1 = [CCSprite spriteWithFile:@"box1.png"];
+        box1 = [CCSprite spriteWithFile:@"redbouncer.png"];
         box1.position = ccp(320/7, 420/8);
-        [self addChild:box1];
+        [self addChild:box1 z:1];
         
         // Initialize box 2
-        box2 = [CCSprite spriteWithFile:@"box1.png"];
+        box2 = [CCSprite spriteWithFile:@"greenbouncer.png"];
         box2.position = ccp(320/2, 420/8);
-        [self addChild:box2];
+        [self addChild:box2 z:1];
         
         // Initialize box 3
-        box3 = [CCSprite spriteWithFile:@"box1.png"];
+        box3 = [CCSprite spriteWithFile:@"bluebouncer.png"];
         box3.position = ccp(320/7*6, 420/8);
-        [self addChild:box3];
+        [self addChild:box3 z:1];
         
         [self scheduleUpdate];
 

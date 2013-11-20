@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A1165E501834306300DA5E7B /* gamelayerbg.png in Resources */ = {isa = PBXBuildFile; fileRef = A1165E4F1834306300DA5E7B /* gamelayerbg.png */; };
+		A12B8AB0183D3ED200B124DA /* upbird.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AAF183D3ED200B124DA /* upbird.png */; };
+		A12B8AB8183D433400B124DA /* redbouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AB7183D433400B124DA /* redbouncer.png */; };
+		A12B8ABA183D453F00B124DA /* greenbouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AB9183D453F00B124DA /* greenbouncer.png */; };
+		A12B8ABC183D455500B124DA /* bluebouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8ABB183D455500B124DA /* bluebouncer.png */; };
+		A12B8AC0183D490B00B124DA /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B8ABF183D490B00B124DA /* StartMenu.m */; };
+		A12B8AC2183D49FA00B124DA /* instructionbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC1183D49FA00B124DA /* instructionbutton.png */; };
+		A12B8AC4183D4A0500B124DA /* startbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC3183D4A0500B124DA /* startbutton.png */; };
+		A12B8AC6183D4A4B00B124DA /* startmenu2.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC5183D4A4B00B124DA /* startmenu2.png */; };
 		A6C2CE0D182D985D0015CF2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0B182D985D0015CF2D /* background.png */; };
 		A6C2CE0E182D985D0015CF2D /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0C182D985D0015CF2D /* ball.png */; };
 		A6C2CE10182D9CFA0015CF2D /* redball.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0F182D9CFA0015CF2D /* redball.png */; };
@@ -57,6 +65,15 @@
 
 /* Begin PBXFileReference section */
 		A1165E4F1834306300DA5E7B /* gamelayerbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamelayerbg.png; sourceTree = "<group>"; };
+		A12B8AAF183D3ED200B124DA /* upbird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upbird.png; path = ../../../../../Desktop/BirdBounce/upbird.png; sourceTree = "<group>"; };
+		A12B8AB7183D433400B124DA /* redbouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redbouncer.png; path = ../../../../../Desktop/BirdBounce/redbouncer.png; sourceTree = "<group>"; };
+		A12B8AB9183D453F00B124DA /* greenbouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenbouncer.png; path = ../../../../../Desktop/BirdBounce/greenbouncer.png; sourceTree = "<group>"; };
+		A12B8ABB183D455500B124DA /* bluebouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluebouncer.png; path = ../../../../../Desktop/BirdBounce/bluebouncer.png; sourceTree = "<group>"; };
+		A12B8ABE183D490A00B124DA /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
+		A12B8ABF183D490B00B124DA /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
+		A12B8AC1183D49FA00B124DA /* instructionbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructionbutton.png; path = ../../../../../Desktop/BirdBounce/instructionbutton.png; sourceTree = "<group>"; };
+		A12B8AC3183D4A0500B124DA /* startbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = startbutton.png; path = ../../../../../Desktop/BirdBounce/startbutton.png; sourceTree = "<group>"; };
+		A12B8AC5183D4A4B00B124DA /* startmenu2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = startmenu2.png; path = ../../../../../Desktop/BirdBounce/startmenu2.png; sourceTree = "<group>"; };
 		A6C2CE0B182D985D0015CF2D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A6C2CE0C182D985D0015CF2D /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A6C2CE0F182D9CFA0015CF2D /* redball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redball.png; sourceTree = "<group>"; };
@@ -236,6 +253,8 @@
 		DCC1A38C13A94F1A005BD75D /* Projectfiles */ = {
 			isa = PBXGroup;
 			children = (
+				A12B8ABE183D490A00B124DA /* StartMenu.h */,
+				A12B8ABF183D490B00B124DA /* StartMenu.m */,
 				DCC1A38F13A94F1A005BD75D /* Bounce.h */,
 				DCC1A39013A94F1A005BD75D /* Bounce.m */,
 				DCC1A38D13A94F1A005BD75D /* AppDelegate.h */,
@@ -250,7 +269,14 @@
 			isa = PBXGroup;
 			children = (
 				A6C2CE15182DAB510015CF2D /* box1.png */,
+				A12B8AC5183D4A4B00B124DA /* startmenu2.png */,
+				A12B8AB7183D433400B124DA /* redbouncer.png */,
+				A12B8AC1183D49FA00B124DA /* instructionbutton.png */,
+				A12B8AC3183D4A0500B124DA /* startbutton.png */,
 				A1165E4F1834306300DA5E7B /* gamelayerbg.png */,
+				A12B8ABB183D455500B124DA /* bluebouncer.png */,
+				A12B8AB9183D453F00B124DA /* greenbouncer.png */,
+				A12B8AAF183D3ED200B124DA /* upbird.png */,
 				A6C2CE0F182D9CFA0015CF2D /* redball.png */,
 				A6C2CE0B182D985D0015CF2D /* background.png */,
 				A6C2CE0C182D985D0015CF2D /* ball.png */,
@@ -369,6 +395,13 @@
 				DC27219F160CADFF00D88944 /* Default-568h@2x.png in Resources */,
 				DC2721A8160CAFA600D88944 /* iTunesArtwork in Resources */,
 				A1165E501834306300DA5E7B /* gamelayerbg.png in Resources */,
+				A12B8AB0183D3ED200B124DA /* upbird.png in Resources */,
+				A12B8AB8183D433400B124DA /* redbouncer.png in Resources */,
+				A12B8ABA183D453F00B124DA /* greenbouncer.png in Resources */,
+				A12B8ABC183D455500B124DA /* bluebouncer.png in Resources */,
+				A12B8AC2183D49FA00B124DA /* instructionbutton.png in Resources */,
+				A12B8AC4183D4A0500B124DA /* startbutton.png in Resources */,
+				A12B8AC6183D4A4B00B124DA /* startmenu2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +427,7 @@
 				DCC1A3A913A94F1A005BD75D /* AppDelegate.m in Sources */,
 				DCC1A3AB13A94F1A005BD75D /* Bounce.m in Sources */,
 				DCC1A3AD13A94F1A005BD75D /* main.m in Sources */,
+				A12B8AC0183D490B00B124DA /* StartMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
