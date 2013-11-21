@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A1165E501834306300DA5E7B /* gamelayerbg.png in Resources */ = {isa = PBXBuildFile; fileRef = A1165E4F1834306300DA5E7B /* gamelayerbg.png */; };
 		A12B8AC0183D490B00B124DA /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B8ABF183D490B00B124DA /* StartMenu.m */; };
-		A12B8AC2183D49FA00B124DA /* instructionbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC1183D49FA00B124DA /* instructionbutton.png */; };
 		A12B8ACC183D7A0300B124DA /* bluebouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC7183D7A0300B124DA /* bluebouncer.png */; };
 		A12B8ACD183D7A0300B124DA /* greenbouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC8183D7A0300B124DA /* greenbouncer.png */; };
 		A12B8ACE183D7A0300B124DA /* redbouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC9183D7A0300B124DA /* redbouncer.png */; };
@@ -66,7 +65,6 @@
 		A1165E4F1834306300DA5E7B /* gamelayerbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamelayerbg.png; sourceTree = "<group>"; };
 		A12B8ABE183D490A00B124DA /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
 		A12B8ABF183D490B00B124DA /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
-		A12B8AC1183D49FA00B124DA /* instructionbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructionbutton.png; path = ../../../../../Desktop/BirdBounce/instructionbutton.png; sourceTree = "<group>"; };
 		A12B8AC7183D7A0300B124DA /* bluebouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebouncer.png; sourceTree = "<group>"; };
 		A12B8AC8183D7A0300B124DA /* greenbouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenbouncer.png; sourceTree = "<group>"; };
 		A12B8AC9183D7A0300B124DA /* redbouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbouncer.png; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				A6C2CE15182DAB510015CF2D /* box1.png */,
-				A12B8AC1183D49FA00B124DA /* instructionbutton.png */,
 				A1165E4F1834306300DA5E7B /* gamelayerbg.png */,
 				A6C2CE0F182D9CFA0015CF2D /* redball.png */,
 				A12B8AC7183D7A0300B124DA /* bluebouncer.png */,
@@ -392,7 +389,6 @@
 				DC27219F160CADFF00D88944 /* Default-568h@2x.png in Resources */,
 				DC2721A8160CAFA600D88944 /* iTunesArtwork in Resources */,
 				A1165E501834306300DA5E7B /* gamelayerbg.png in Resources */,
-				A12B8AC2183D49FA00B124DA /* instructionbutton.png in Resources */,
 				A12B8ACC183D7A0300B124DA /* bluebouncer.png in Resources */,
 				A12B8ACD183D7A0300B124DA /* greenbouncer.png in Resources */,
 				A12B8ACE183D7A0300B124DA /* redbouncer.png in Resources */,
