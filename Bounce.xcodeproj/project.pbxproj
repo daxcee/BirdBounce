@@ -16,6 +16,7 @@
 		A12B8AD0183D7A0300B124DA /* upbird.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8ACB183D7A0300B124DA /* upbird.png */; };
 		A12B8AD3183D7F8C00B124DA /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B8AD2183D7F8C00B124DA /* Bird.m */; };
 		A12B8AD5183D864E00B124DA /* startmenu2.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AD4183D864E00B124DA /* startmenu2.png */; };
+		A607B284183DB29C009272E4 /* Trampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B283183DB29C009272E4 /* Trampoline.m */; };
 		A6C2CE0D182D985D0015CF2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0B182D985D0015CF2D /* background.png */; };
 		A6C2CE0E182D985D0015CF2D /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0C182D985D0015CF2D /* ball.png */; };
 		A6C2CE10182D9CFA0015CF2D /* redball.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0F182D9CFA0015CF2D /* redball.png */; };
@@ -75,6 +76,8 @@
 		A12B8AD1183D7F8C00B124DA /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
 		A12B8AD2183D7F8C00B124DA /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 		A12B8AD4183D864E00B124DA /* startmenu2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startmenu2.png; sourceTree = "<group>"; };
+		A607B282183DB29C009272E4 /* Trampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trampoline.h; path = ../Trampoline.h; sourceTree = "<group>"; };
+		A607B283183DB29C009272E4 /* Trampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trampoline.m; path = ../Trampoline.m; sourceTree = "<group>"; };
 		A6C2CE0B182D985D0015CF2D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A6C2CE0C182D985D0015CF2D /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A6C2CE0F182D9CFA0015CF2D /* redball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redball.png; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 			children = (
 				A12B8ABE183D490A00B124DA /* StartMenu.h */,
 				A12B8ABF183D490B00B124DA /* StartMenu.m */,
+				A607B282183DB29C009272E4 /* Trampoline.h */,
+				A607B283183DB29C009272E4 /* Trampoline.m */,
 				A12B8AD1183D7F8C00B124DA /* Bird.h */,
 				A12B8AD2183D7F8C00B124DA /* Bird.m */,
 				DCC1A38F13A94F1A005BD75D /* Bounce.h */,
@@ -353,7 +358,7 @@
 		DCC1A0D813A94EC0005BD75D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = DCC1A0DB13A94EC0005BD75D /* Build configuration list for PBXProject "Bounce" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -429,6 +434,7 @@
 				DCC1A3AB13A94F1A005BD75D /* Bounce.m in Sources */,
 				DCC1A3AD13A94F1A005BD75D /* main.m in Sources */,
 				A12B8AC0183D490B00B124DA /* StartMenu.m in Sources */,
+				A607B284183DB29C009272E4 /* Trampoline.m in Sources */,
 				A12B8AD3183D7F8C00B124DA /* Bird.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +474,7 @@
 		DCC1A0DD13A94EC0005BD75D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -495,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC9C33E713B5024400931BF2 /* BuildSettings-Debug-Mac.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Debug;
 		};
@@ -502,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC9C33E913B5024400931BF2 /* BuildSettings-Release-Mac.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Release;
 		};
