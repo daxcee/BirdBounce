@@ -10,6 +10,7 @@
 
 @interface Bird : CCSprite
 
++(id) initWithPosition: (int) PathXPos;
 @end
 
 

@@ -56,7 +56,8 @@ bool box1Touched = false;
 
 - (void) update:(ccTime)dt
 {
-    Bird *firstBird = [[Bird alloc] initWithPosition PATH1];
+    Bird *firstBird = [[Bird alloc] initWithPosition: PATH1];
+    firstBird.position;
     
     
 //    //move the ship only in the x direction by a fixed amount every frame

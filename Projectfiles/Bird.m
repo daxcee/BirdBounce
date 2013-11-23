@@ -21,7 +21,7 @@
     if ((self = [super init]))
     {
         isFalling = TRUE;
-        fallingSpeed = 0;
+        fallingSpeed = 200;
         CCSprite *bird = [CCSprite spriteWithFile:@"upbird.png"];
         bird.position = ccp(pathXPos, 480);
     }
