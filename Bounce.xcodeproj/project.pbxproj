@@ -16,6 +16,7 @@
 		A12B8AD0183D7A0300B124DA /* upbird.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8ACB183D7A0300B124DA /* upbird.png */; };
 		A12B8AD3183D7F8C00B124DA /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B8AD2183D7F8C00B124DA /* Bird.m */; };
 		A12B8AD5183D864E00B124DA /* startmenu2.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AD4183D864E00B124DA /* startmenu2.png */; };
+		A1AAB467184FED87002A3EE4 /* birdbouncegraphics.ai in Resources */ = {isa = PBXBuildFile; fileRef = A1AAB466184FED87002A3EE4 /* birdbouncegraphics.ai */; };
 		A607B284183DB29C009272E4 /* Trampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B283183DB29C009272E4 /* Trampoline.m */; };
 		A6211F6A184FE494002A0128 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = A6211F69184FE494002A0128 /* Score.m */; };
 		A6C2CE0D182D985D0015CF2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0B182D985D0015CF2D /* background.png */; };
@@ -77,6 +78,7 @@
 		A12B8AD1183D7F8C00B124DA /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
 		A12B8AD2183D7F8C00B124DA /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 		A12B8AD4183D864E00B124DA /* startmenu2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startmenu2.png; sourceTree = "<group>"; };
+		A1AAB466184FED87002A3EE4 /* birdbouncegraphics.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = birdbouncegraphics.ai; sourceTree = "<group>"; };
 		A607B282183DB29C009272E4 /* Trampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trampoline.h; path = ../Trampoline.h; sourceTree = "<group>"; };
 		A607B283183DB29C009272E4 /* Trampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trampoline.m; path = ../Trampoline.m; sourceTree = "<group>"; };
 		A6211F68184FE494002A0128 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Score.h; path = ../Score.h; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				A12B8AD4183D864E00B124DA /* startmenu2.png */,
 				A6C2CE0F182D9CFA0015CF2D /* redball.png */,
 				A12B8AC7183D7A0300B124DA /* bluebouncer.png */,
+				A1AAB466184FED87002A3EE4 /* birdbouncegraphics.ai */,
 				A12B8AC8183D7A0300B124DA /* greenbouncer.png */,
 				A12B8AC9183D7A0300B124DA /* redbouncer.png */,
 				A12B8ACA183D7A0300B124DA /* startbutton.png */,
@@ -413,6 +416,7 @@
 				A12B8ACF183D7A0300B124DA /* startbutton.png in Resources */,
 				A12B8AD0183D7A0300B124DA /* upbird.png in Resources */,
 				A12B8AD5183D864E00B124DA /* startmenu2.png in Resources */,
+				A1AAB467184FED87002A3EE4 /* birdbouncegraphics.ai in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
