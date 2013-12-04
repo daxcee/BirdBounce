@@ -1,16 +1,19 @@
 #import "Bounce.h"
 #import "Bird.h"
-
+#import "Trampoline.h"
 
 
 #define TRAMPOLINEYPOS 420/8
 #define PATH1 320/7
 #define PATH2 320/2
 #define PATH3 320/7*6
-//CCSprite *ball1;
-CCSprite *bird1;
-CCSprite *bird2;
-CCSprite *bird3;
+Trampoline *trampoline1;
+Trampoline *trampoline2;
+Trampoline *trampoline3;
+
+NSMutableArray *birds; // list of birds
+NSMutableArray *trampolines; // list of trampolines
+NSMutableArray *paths; // list of paths
 
 bool box1Touched = false;
 
@@ -21,31 +24,44 @@ bool box1Touched = false;
 
 -(id) init
 {
-	if ((self = [super init]))
+	if (self = [super init])
 	{
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
         sprite.anchorPoint = CGPointZero;
         [self addChild:sprite z:-1];
         
-        /*// Add ball 1 to screen
-        ball1 = [CCSprite spriteWithFile:@"upbird.png"];
-        ball1.position = ccp(320/7, 420);
-        [self addChild:ball1 z:2];*/
+        birds = [[NSMutableArray alloc] init]; // list of birds
+        trampolines = [[NSMutableArray alloc] init]; // list of trampolines
+        paths = [[NSMutableArray alloc] init]; // list of paths
+        [paths addObject:[NSNumber numberWithInteger:PATH1]];
+        [paths addObject:[NSNumber numberWithInteger:PATH2]];
+        [paths addObject:[NSNumber numberWithInteger:PATH3]];
         
         // Initialize red bird (left)
-        bird1 = [CCSprite spriteWithFile:@"redbouncer.png"];
-        bird1.position = ccp(TRAMPOLINEYPOS, PATH1);
-        [self addChild:bird1 z:1];
+        trampoline1 = [[Trampoline alloc] initWithPosition: PATH1];
+        trampoline1.trampolineSprite = [CCSprite spriteWithFile:@"redbouncer.png"];
+        [trampoline1 addChild:trampoline1.trampolineSprite];
+        [trampolines addObject:trampoline1];
+        [self addChild:trampoline1 z:1];
         
         // Initialize green bird (center)
-        bird2 = [CCSprite spriteWithFile:@"greenbouncer.png"];
-        bird2.position = ccp(TRAMPOLINEYPOS, PATH2);
-        [self addChild:bird2 z:1];
+        trampoline2 = [[Trampoline alloc] initWithPosition: PATH2];
+        trampoline2.trampolineSprite = [CCSprite spriteWithFile:@"greenbouncer.png"];
+        [trampoline2 addChild:trampoline2.trampolineSprite];
+        [trampolines addObject:trampoline2];
+        [self addChild:trampoline2 z:1];
         
         // Initialize blue bird (center)
-        bird3 = [CCSprite spriteWithFile:@"bluebouncer.png"];
-        bird3.position = ccp(TRAMPOLINEYPOS, PATH3);
-        [self addChild:bird3 z:1];
+        trampoline3 = [[Trampoline alloc] initWithPosition: PATH3];
+        trampoline3.trampolineSprite = [CCSprite spriteWithFile:@"bluebouncer.png"];
+        [trampoline3 addChild:trampoline3.trampolineSprite];
+        [trampolines addObject:trampoline3];
+        [self addChild:trampoline3 z:1];
+        
+        // Initialize first bird
+        Bird *firstBird = [[Bird alloc] initWithPosition: PATH1];
+        [birds addObject:firstBird];
+        [self addChild:firstBird z:1];
         
         [self scheduleUpdate];
 
@@ -56,52 +72,88 @@ bool box1Touched = false;
 
 - (void) update:(ccTime)dt
 {
+//<<<<<<< HEAD
     Bird *firstBird = [[Bird alloc] initWithPosition: PATH1];
     firstBird.position;
+//=======
+//>>>>>>> c0742f00241aed57e89ad28788454c173e4b3a92
     
+//    NSLog(@"Bird Count %d",[birds count]);
+//    TODO: Consider removing birds once they leave screen
     
-//    //move the ship only in the x direction by a fixed amount every frame
-//    ship1.position = ccp( ship1.position.x + 100*dt, ship1.position.y );
-//    
-//    if (ship1.position.x > 480+32)
-//    {
-//        //if the ship reaches the edge of the screen, loop around
-//        ship1.position = ccp( -32, ship1.position.y );
-//        
-//
+    /* 
+     Get reference to most current falling bird
+     */
+    NSInteger idx = [birds count]-1;
+    Bird *currentBird = [birds objectAtIndex:idx];
     
-
-/*    if (!box1Touched) {
-        ball1.position = ccp(ball1.position.x, ball1.position.y - 200*dt);
-    } else if (box1Touched) {
-        ball1.position = ccp(ball1.position.x, ball1.position.y + 200*dt);
+    /*
+     Get reference to relevant trampoline
+    */
+    Trampoline *currentTrampoline;
+    if (currentBird.position.x == trampoline1.position.x) {
+        currentTrampoline = trampoline1;
+    } else if (currentBird.position.x == trampoline2.position.x) {
+        currentTrampoline = trampoline2;
+    } else {
+        currentTrampoline = trampoline3;
     }
     
+    /*
+     Determine direction of all birds
+     */
+    Bird *birdPtr;
+    for(int i = 0; i < [birds count]; i++)
+    {
+        NSInteger j = i;
+        birdPtr = [birds objectAtIndex:j];
+        if (birdPtr.isFalling) {
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt);
+        } else {
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt);
+        }
+    }
     
+    /*
+     Touch happenned so check if most current falling bird will change direction
+     */
     KKInput* input = [KKInput sharedInput];
     CGPoint pos = [input locationOfAnyTouchInPhase:KKTouchPhaseBegan];
-    
     
     if (input.anyTouchBeganThisFrame) {
         //get x and y coordinates for mouse
         int x = pos.x;
         int y = pos.y;
-        CGFloat distance = abs(ball1.position.y-bird1.position.y); // get distance between ball 1 and box 1
+        CGFloat distance = abs(currentBird.position.y-currentTrampoline.trampolineSprite.position.y); // get distance between bird and trampoline
         
-        CGFloat maxDistance = (ball1.contentSize.height + bird1.contentSize.height)/2; // minimum distance in order to bounce back up
+        CGFloat maxDistance = (currentBird.contentSize.height + currentTrampoline.trampolineSprite.contentSize.height)/2; // minimum distance in order to bounce back up
         
-        CGFloat x1 = (bird1.position.x-(bird1.contentSize.width/2));
-        CGFloat x2 = (bird1.position.x+(bird1.contentSize.width/2));
-        CGFloat y1 = (bird1.position.y-(bird1.contentSize.height/2));
-        CGFloat y2 = (bird1.position.y+(bird1.contentSize.height/2));
+        CGFloat x1 = (currentTrampoline.position.x-(currentTrampoline.trampolineSprite.contentSize.width/2));
+        CGFloat x2 = (currentTrampoline.position.x+(currentTrampoline.trampolineSprite.contentSize.width/2));
+        CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2));
+        CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/2));
         
+        /*
+         Touch meets criteria to change direction of current falling bird
+         */
         if (x >= x1 && x <= x2 && y >= y1 && y <= y2 && distance <= maxDistance) {
-            box1Touched = true;
+            
+            // change direction of current bird
+            currentBird.isFalling = false;
+            //[birds replaceObjectAtIndex:idx withObject:currentBird];
+            
+            
+            // initialize new bird on a random path
+            NSNumber *randomPath = [paths objectAtIndex:random()%[paths count]];
+            Bird *newBird = [[Bird alloc] initWithPosition: [randomPath intValue]];
+            [birds addObject:newBird];
+            [self addChild:newBird z:1];
+            
         }
         
-        CCLOG(@"Does it work? I think it did!");
+       // CCLOG(@"Does it work? I think it did!");
     }
-    */
+    
     
     
 }
