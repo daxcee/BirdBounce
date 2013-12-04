@@ -26,7 +26,7 @@
                                         lineBreakMode:kCCLineBreakModeWordWrap
                                              fontName:@"EngraversMT" fontSize:14];
         
-        self.scoreSprite = [CCSprite spriteWithCGImage:scoreLabel];
+        self.scoreSprite = [CCSprite spriteWithSpriteFrame :scoreLabel.displayFrame];
     }
     return self;
 }

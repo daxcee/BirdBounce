@@ -18,18 +18,11 @@
 {
     if ((self = [super init]))
     {
-/*<<<<<<< HEAD
-        isFalling = TRUE;
-        fallingSpeed = 200;
-        CCSprite *bird = [CCSprite spriteWithFile:@"upbird.png"];
-        bird.position = ccp(pathXPos, 480);
-=======*/
         self.isFalling = TRUE;
         self.fallingSpeed = 200;
         self.birdSprite = [CCSprite spriteWithFile:@"upbird.png"];
         self.position = ccp(pathXPos, 480);
         [self addChild:self.birdSprite];
-/*>>>>>>> c0742f00241aed57e89ad28788454c173e4b3a92*/
     }
     return self;
 }
