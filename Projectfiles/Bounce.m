@@ -1,5 +1,6 @@
 #import "Bounce.h"
 #import "Bird.h"
+#import "Score.h"
 #import "Trampoline.h"
 
 
@@ -16,6 +17,8 @@ NSMutableArray *trampolines; // list of trampolines
 NSMutableArray *paths; // list of paths
 
 bool box1Touched = false;
+
+Score *scoreDisplay;
 
 @interface Bounce (PrivateMethods)
 @end

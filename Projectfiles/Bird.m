@@ -12,10 +12,6 @@
 
 @implementation Bird
 {
-//    //determines whether the bird is falling
-//    BOOL isFalling;
-//    //changing velocity of the bird as it falls
-//    int fallingSpeed;
 }
 
 -(id) initWithPosition:(int) pathXPos
@@ -33,7 +29,7 @@
 
 -(id) init
 {
-    //by default creates a bird in the middle
+    // by default creates a bird in the middle
     return [self initWithPosition: 320/2];
 }
 
