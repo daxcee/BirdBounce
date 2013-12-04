@@ -24,6 +24,7 @@
 @property (nonatomic, weak) CCSprite *birdSprite;
 
 
++(id) initWithPosition: (int) PathXPos;
 @end
 
 
