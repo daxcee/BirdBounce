@@ -12,6 +12,7 @@ Trampoline *trampoline1;
 Trampoline *trampoline2;
 Trampoline *trampoline3;
 
+
 NSMutableArray *birds; // list of birds
 NSMutableArray *trampolines; // list of trampolines
 NSMutableArray *paths; // list of paths
@@ -30,8 +31,11 @@ Score *scoreDisplay;
 	if (self = [super init])
 	{
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
+        /*sprite.opacity = 0;*/
         sprite.anchorPoint = CGPointZero;
         [self addChild:sprite z:-1];
+        /*[sprite runAction: [CCFadeIn actionWithDuration:0.5]];*/
+        
         
         birds = [[NSMutableArray alloc] init]; // list of birds
         trampolines = [[NSMutableArray alloc] init]; // list of trampolines

@@ -18,7 +18,7 @@
 {
     if ((self = [super init]))
     {
-        self.totalScore = 0;
+        /*self.totalScore = 0;
         self.position = ccp(320/7*6, 480);
         scoreLabel = [CCLabelTTF labelWithString:@"My string."
                                            dimensions:CGSizeMake(200, 120)
@@ -26,7 +26,7 @@
                                         lineBreakMode:kCCLineBreakModeWordWrap
                                              fontName:@"EngraversMT" fontSize:14];
         
-        self.scoreSprite = [CCSprite spriteWithCGImage:scoreLabel];
+        self.scoreSprite = [CCSprite spriteWithCGImage:scoreLabel];*/
     }
     return self;
 }
