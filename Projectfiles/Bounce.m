@@ -68,9 +68,9 @@ Score *scoreDisplay;
         
         // Initialize score
         scoreDisplay = [[Score alloc] init];
-//        scoreDisplay.scoreSprite = [CCSprite spriteWithCGImage:scoreDisplay.scoreLabel];
+        //scoreDisplay.scoreSprite = [CCSprite spriteWithSpriteFrame : scoreDisplay.scoreLabel.displayFrame];
         [self addChild:scoreDisplay];
-        [self addChild:scoreDisplay.scoreSprite];
+        //[self addChild:scoreDisplay.scoreSprite];
         
         [self scheduleUpdate];
 
@@ -151,6 +151,11 @@ Score *scoreDisplay;
             Bird *newBird = [[Bird alloc] initWithPosition: [randomPath intValue]];
             [birds addObject:newBird];
             [self addChild:newBird z:1];
+            
+            // update score
+            [self removeChild:scoreDisplay];
+            scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+1];
+            [self addChild:scoreDisplay];
             
         }
         

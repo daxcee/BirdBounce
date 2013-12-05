@@ -4,7 +4,7 @@
 }
 
 
-- (id) setScore: (int) newScore;
+-(id) initWithScore:(int) newScore;
 
 // player's total score
 @property (nonatomic, assign) int totalScore;
