@@ -1,11 +1,3 @@
-//
-//  Bird.m
-//  Bounce
-//
-//  Created by Linda He on 11/20/13.
-//
-//
-
 #import "Bird.h"
 #import "Trampoline.h"
 #import "Bounce.h"

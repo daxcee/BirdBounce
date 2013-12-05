@@ -1,11 +1,3 @@
-//
-//  StartMenu.m
-//  Bounce
-//
-//  Created by Linda He on 11/20/13.
-//
-//
-
 #import "StartMenu.h"
 #import "Bounce.h"
 

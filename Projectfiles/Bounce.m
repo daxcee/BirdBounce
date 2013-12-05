@@ -66,6 +66,12 @@ Score *scoreDisplay;
         [birds addObject:firstBird];
         [self addChild:firstBird z:1];
         
+        // Initialize score
+        scoreDisplay = [[Score alloc] init];
+//        scoreDisplay.scoreSprite = [CCSprite spriteWithCGImage:scoreDisplay.scoreLabel];
+        [self addChild:scoreDisplay];
+        [self addChild:scoreDisplay.scoreSprite];
+        
         [self scheduleUpdate];
 
 	}
@@ -75,12 +81,6 @@ Score *scoreDisplay;
 
 - (void) update:(ccTime)dt
 {
-//<<<<<<< HEAD
-    Bird *firstBird = [[Bird alloc] initWithPosition: PATH1];
-    firstBird.position;
-//=======
-//>>>>>>> c0742f00241aed57e89ad28788454c173e4b3a92
-    
 //    NSLog(@"Bird Count %d",[birds count]);
 //    TODO: Consider removing birds once they leave screen
     

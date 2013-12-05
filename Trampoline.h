@@ -1,11 +1,3 @@
-//
-//  Trampoline.h
-//  Bounce
-//
-//  Created by Tsion Behailu on 11/20/13.
-//
-//
-
 #import "CCSprite.h"
 
 @interface Trampoline : CCSprite {

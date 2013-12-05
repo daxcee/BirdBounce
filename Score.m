@@ -1,11 +1,3 @@
-//
-//  Score.m
-//  Bounce
-//
-//  Created by Tsion Behailu on 12/4/13.
-//
-//
-
 #import "Score.h"
 #import "Bounce.h"
 
@@ -19,17 +11,22 @@
     if ((self = [super init]))
     {
         self.totalScore = 0;
-        self.position = ccp(320/7*6, 480);
-        scoreLabel = [CCLabelTTF labelWithString:@"My string."
-                                           dimensions:CGSizeMake(200, 120)
-                                           hAlignment:kCCTextAlignmentCenter
-                                        lineBreakMode:kCCLineBreakModeWordWrap
-                                             fontName:@"EngraversMT" fontSize:14];
-        
-        self.scoreSprite = [CCSprite spriteWithSpriteFrame :scoreLabel.displayFrame];
+        self.position = ccp(320/7*6, 400);
+//        self.scoreLabel = [CCLabelTTF labelWithString:@"My string"
+//                                             fontName:@"Marker Felt"
+//                                        fontSize:50];
+//        self.scoreLabel.position = ccp(160,280);
+//        self.scoreLabel.color = ccc3(255, 0, 0);
+        //self.scoreSprite = [CCSprite spriteWithSpriteFrame : scoreLabel.displayFrame];
+        [self addChild:self.scoreLabel];
+        //[self addChild:self.scoreSprite];
     }
     return self;
 }
 
+-(id) setScore: (int) newScore
+{
+    
+}
 
 @end
