@@ -11,6 +11,7 @@
     if ((self = [super init]))
     {
         self.isFalling = TRUE;
+        self.isOutofScreen = false;
         self.fallingSpeed = 200;
         self.birdSprite = [CCSprite spriteWithFile:@"upbird.png"];
         self.position = ccp(pathXPos, 480);
@@ -23,11 +24,6 @@
 {
     // by default creates a bird in the middle
     return [self initWithPosition: 320/2];
-}
-
--(void)replaceSprite
-{
-    
 }
 
 
