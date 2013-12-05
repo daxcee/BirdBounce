@@ -17,7 +17,7 @@ NSMutableArray *birds; // list of birds
 NSMutableArray *trampolines; // list of trampolines
 NSMutableArray *paths; // list of paths
 
-bool box1Touched = false;
+bool initializeBird = false;
 
 Score *scoreDisplay;
 
@@ -70,6 +70,12 @@ Score *scoreDisplay;
         [birds addObject:firstBird];
         [self addChild:firstBird z:1];
         
+        // Initialize score
+        scoreDisplay = [[Score alloc] init];
+        //scoreDisplay.scoreSprite = [CCSprite spriteWithSpriteFrame : scoreDisplay.scoreLabel.displayFrame];
+        [self addChild:scoreDisplay];
+        //[self addChild:scoreDisplay.scoreSprite];
+        
         [self scheduleUpdate];
 
 	}
@@ -79,16 +85,14 @@ Score *scoreDisplay;
 
 - (void) update:(ccTime)dt
 {
-//<<<<<<< HEAD
-    Bird *firstBird = [[Bird alloc] initWithPosition: PATH1];
-    firstBird.position;
-//=======
-//>>>>>>> c0742f00241aed57e89ad28788454c173e4b3a92
-    
 //    NSLog(@"Bird Count %d",[birds count]);
 //    TODO: Consider removing birds once they leave screen
     
-    /* 
+    if ([birds count] == 0) {
+        [self makeBird];
+    }
+    
+    /*
      Get reference to most current falling bird
      */
     NSInteger idx = [birds count]-1;
@@ -106,9 +110,7 @@ Score *scoreDisplay;
         currentTrampoline = trampoline3;
     }
     
-    /*
-     Determine direction of all birds
-     */
+    
     Bird *birdPtr;
     for(int i = 0; i < [birds count]; i++)
     {
@@ -119,7 +121,9 @@ Score *scoreDisplay;
         } else {
             birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt);
         }
+        
     }
+    
     
     /*
      Touch happenned so check if most current falling bird will change direction
@@ -140,10 +144,14 @@ Score *scoreDisplay;
         CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2));
         CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/2));
         
+        
+        
         /*
          Touch meets criteria to change direction of current falling bird
          */
         if (x >= x1 && x <= x2 && y >= y1 && y <= y2 && distance <= maxDistance) {
+            
+            //NSLog(@"Bird Pos %f",currentBird.position.y);
             
             // change direction of current bird
             currentBird.isFalling = false;
@@ -151,18 +159,38 @@ Score *scoreDisplay;
             
             
             // initialize new bird on a random path
-            NSNumber *randomPath = [paths objectAtIndex:random()%[paths count]];
-            Bird *newBird = [[Bird alloc] initWithPosition: [randomPath intValue]];
-            [birds addObject:newBird];
-            [self addChild:newBird z:1];
+            [self makeBird];
+            
+            
+            // update score
+            [self removeChild:scoreDisplay];
+            scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+1];
+            [self addChild:scoreDisplay];
             
         }
         
-       // CCLOG(@"Does it work? I think it did!");
+        //NSLog(@"Bird Pos %f",currentBird.position.y);
+        //CCLOG(@"Does it work? I think it did!");
     }
     
+    /*
+     Initialize new bird if no birds on screen
+     */
+    if (currentBird.isFalling && currentBird.position.y < 420/25) {
+            [self makeBird];
+    }
     
+
     
+}
+
+- (void) makeBird
+{
+    // initialize new bird on a random path
+    NSNumber *randomPath = [paths objectAtIndex:random()%[paths count]];
+    Bird *newBird = [[Bird alloc] initWithPosition: [randomPath intValue]];
+    [birds addObject:newBird];
+    [self addChild:newBird z:1];
 }
 
 @end

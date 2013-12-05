@@ -1,11 +1,3 @@
-//
-//  Trampoline.m
-//  Bounce
-//
-//  Created by Tsion Behailu on 11/20/13.
-//
-//
-
 #import "Trampoline.h"
 #import "Bird.h"
 #import "Bounce.h"
