@@ -2,12 +2,15 @@
 #import "Bird.h"
 #import "Score.h"
 #import "Trampoline.h"
+#import "Pause.h"
 
 
 #define TRAMPOLINEYPOS 420/8
 #define PATH1 320/7
 #define PATH2 320/2
 #define PATH3 320/7*6
+#define GAMEOVER 3
+#define KGameLayer 1
 Trampoline *trampoline1;
 Trampoline *trampoline2;
 Trampoline *trampoline3;
@@ -77,11 +80,33 @@ Score *scoreDisplay;
         //[self addChild:scoreDisplay.scoreSprite];
         
         [self scheduleUpdate];
+        [self setUpPauseButton];
 
 	}
 
 	return self;
 }
+
+-(void) setUpPauseButton
+{
+ 
+ 
+    CCMenuItemImage * pauseButton = [CCMenuItemImage itemWithNormalImage:@"pauseButton.png"
+                                                           selectedImage:@"pauseButton.png"
+                                                                  target:self
+                                                                selector:@selector(pauseGame:)];
+    
+    CCMenu *pauseButtonMenu = [CCMenu menuWithItems: pauseButton, nil];
+    pauseButtonMenu.position = ccp(20, 480 - 20);
+    [self addChild: pauseButtonMenu];
+}
+
+-(void) pauseGame: (CCMenuItem *) startButton
+{
+    [[CCDirector sharedDirector] pushScene: (CCScene*)[[Pause alloc] init]];
+}
+
+
 
 - (void) update:(ccTime)dt
 {
@@ -137,14 +162,17 @@ Score *scoreDisplay;
         int y = pos.y;
         CGFloat distance = abs(currentBird.position.y-currentTrampoline.trampolineSprite.position.y); // get distance between bird and trampoline
         
-        CGFloat maxDistance = (currentBird.contentSize.height + currentTrampoline.trampolineSprite.contentSize.height)/2; // minimum distance in order to bounce back up
+        CGFloat maxDistance = (currentBird.contentSize.height + currentTrampoline.trampolineSprite.contentSize.height)+20;
+        /*CGFloat maxDistance = (currentBird.contentSize.height + currentTrampoline.trampolineSprite.contentSize.height)/2; // minimum distance in order to bounce back up*/
         
         CGFloat x1 = (currentTrampoline.position.x-(currentTrampoline.trampolineSprite.contentSize.width/2));
         CGFloat x2 = (currentTrampoline.position.x+(currentTrampoline.trampolineSprite.contentSize.width/2));
+        /*this is the original
         CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2));
-        CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/2));
+        CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/2));*/
         
-        
+        CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/1.5));
+        CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/1.5));
         
         /*
          Touch meets criteria to change direction of current falling bird
@@ -156,6 +184,10 @@ Score *scoreDisplay;
             // change direction of current bird
             currentBird.isFalling = false;
             //[birds replaceObjectAtIndex:idx withObject:currentBird];
+            
+            /*[currentBird setTexture: [[CCSprite spriteWithFile:@"upbird.png"] texture]];*/
+            CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage: @"upbird.png"];
+            [currentBird.birdSprite setTexture: tex];
             
             
             // initialize new bird on a random path
