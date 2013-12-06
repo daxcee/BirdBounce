@@ -214,9 +214,11 @@ Score *scoreDisplay;
     
 }
 
+/*
+ Initialize new bird on a random path
+ */
 - (void) makeBird
 {
-    // initialize new bird on a random path
     NSNumber *randomPath = [paths objectAtIndex:random()%[paths count]];
     Bird *newBird = [[Bird alloc] initWithPosition: [randomPath intValue]];
     [birds addObject:newBird];
