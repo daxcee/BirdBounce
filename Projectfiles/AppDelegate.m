@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "Pause.h"
 
 @implementation AppDelegate
 
@@ -9,6 +10,21 @@
 #else
 	CCLOG(@"ARC is either not available or not enabled");
 #endif
+}
+
+/*-(void) applicationWillResignActive:(UIApplication *)application
+{
+    [[CCDirector sharedDirector] pause];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [[CCDirector sharedDirector] resume];
+}*/
+
+-(void) applicationWillResignActiveNotification: (UIApplication*) application
+{
+    [[CCDirector sharedDirector] pushScene: (CCScene*)[[Pause alloc] init]];
 }
 
 -(id) alternateView

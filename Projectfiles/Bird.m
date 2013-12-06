@@ -13,7 +13,7 @@
         self.isFalling = TRUE;
         self.isOutofScreen = false;
         self.fallingSpeed = 200;
-        self.birdSprite = [CCSprite spriteWithFile:@"upbird.png"];
+        self.birdSprite = [CCSprite spriteWithFile:@"downbird.png"];
         self.position = ccp(pathXPos, 480);
         [self addChild:self.birdSprite];
     }
