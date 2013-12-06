@@ -17,8 +17,6 @@ NSMutableArray *birds; // list of birds
 NSMutableArray *trampolines; // list of trampolines
 NSMutableArray *paths; // list of paths
 
-bool initializeBird = false;
-
 Score *scoreDisplay;
 
 @interface Bounce (PrivateMethods)
