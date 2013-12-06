@@ -52,7 +52,7 @@ CGFloat screenHeight;
         /*
          setting up the game over screen and the menu option to restart
          */
-        CCSprite *gameOverBG = [CCSprite spriteWithFile:@"pausebackground.png"];
+        CCSprite *gameOverBG = [CCSprite spriteWithFile:@"gameoverbackground.png"];
         gameOverBG.scaleX = screenWidth/gameOverBG.contentSize.width;
         gameOverBG.scaleY = screenHeight/gameOverBG.contentSize.height;
         gameOverBG.position = ccp(screenWidth/2, screenHeight/2);

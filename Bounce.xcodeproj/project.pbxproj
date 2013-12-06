@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A1165E501834306300DA5E7B /* gamelayerbg.png in Resources */ = {isa = PBXBuildFile; fileRef = A1165E4F1834306300DA5E7B /* gamelayerbg.png */; };
+		A1251C121852600B0099643E /* gameoverbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A1251C111852600B0099643E /* gameoverbackground.png */; };
+		A1251C14185262330099643E /* bird_chirp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1251C13185262330099643E /* bird_chirp.mp3 */; };
 		A12B8AC0183D490B00B124DA /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B8ABF183D490B00B124DA /* StartMenu.m */; };
 		A12B8ACC183D7A0300B124DA /* bluebouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC7183D7A0300B124DA /* bluebouncer.png */; };
 		A12B8ACD183D7A0300B124DA /* greenbouncer.png in Resources */ = {isa = PBXBuildFile; fileRef = A12B8AC8183D7A0300B124DA /* greenbouncer.png */; };
@@ -81,6 +83,8 @@
 
 /* Begin PBXFileReference section */
 		A1165E4F1834306300DA5E7B /* gamelayerbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamelayerbg.png; sourceTree = "<group>"; };
+		A1251C111852600B0099643E /* gameoverbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameoverbackground.png; sourceTree = "<group>"; };
+		A1251C13185262330099643E /* bird_chirp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_chirp.mp3; sourceTree = "<group>"; };
 		A12B8ABE183D490A00B124DA /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
 		A12B8ABF183D490B00B124DA /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
 		A12B8AC7183D7A0300B124DA /* bluebouncer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebouncer.png; sourceTree = "<group>"; };
@@ -321,8 +325,10 @@
 				A1165E4F1834306300DA5E7B /* gamelayerbg.png */,
 				A1AAB47618512DDE002A3EE4 /* downbird.png */,
 				A12B8AD4183D864E00B124DA /* startmenu2.png */,
+				A1251C111852600B0099643E /* gameoverbackground.png */,
 				A6C2CE0F182D9CFA0015CF2D /* redball.png */,
 				A197D8701851D2BC00AC1F00 /* restart.png */,
+				A1251C13185262330099643E /* bird_chirp.mp3 */,
 				A197D8711851D2BC00AC1F00 /* resume.png */,
 				A1AAB47218500164002A3EE4 /* startinstrButton.png */,
 				A197D8741851D2C100AC1F00 /* pauseButton.png */,
@@ -472,6 +478,8 @@
 				A197D8721851D2BC00AC1F00 /* restart.png in Resources */,
 				A197D8731851D2BC00AC1F00 /* resume.png in Resources */,
 				A197D8751851D2C100AC1F00 /* pauseButton.png in Resources */,
+				A1251C121852600B0099643E /* gameoverbackground.png in Resources */,
+				A1251C14185262330099643E /* bird_chirp.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

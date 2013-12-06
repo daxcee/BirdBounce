@@ -37,6 +37,11 @@ Lives *livesDisplay;
 {
 	if (self = [super init])
 	{
+        
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"bird_chirp.mp3"];
+        [SimpleAudioEngine sharedEngine].effectsVolume = 0.05;
+        
+        
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
         /*sprite.opacity = 0;*/
         sprite.anchorPoint = CGPointZero;
@@ -209,6 +214,9 @@ Lives *livesDisplay;
             
             currentBird.fallingAccel += 1.0;
             CCLOG(@"fallingAccel of current bird: %d", currentBird.fallingAccel);
+            
+            //play sound
+            [[SimpleAudioEngine sharedEngine] playEffect: @"bird_chirp.mp3"];
             
         }
         
