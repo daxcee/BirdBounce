@@ -23,22 +23,40 @@ NSMutableArray *birds; // list of birds
 NSMutableArray *trampolines; // list of trampolines
 NSMutableArray *paths; // list of paths
 
+<<<<<<< HEAD
+=======
+/*int currentStreak;*/
+
+bool initializeBird = false;
+
+>>>>>>> 2aedc884f8d5163714b11c8f6cc1386e63be5618
 Score *scoreDisplay;
 Lives *livesDisplay;
 
 @interface Bounce (PrivateMethods)
+
 @end
 
 @implementation Bounce
+{
+    int currentStreak;
+    float currentAccel;
+    float currentSpeed;
+}
+
 
 -(id) init
 {
 	if (self = [super init])
 	{
-        
+        //set up bird chirping noise
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"bird_chirp.mp3"];
         [SimpleAudioEngine sharedEngine].effectsVolume = 0.05;
         
+        //set up currentStreak (== 0) and currentAccel (==9.8)
+        currentStreak = 0;
+        currentAccel = 9.8;
+        currentSpeed = 200;
         
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
         /*sprite.opacity = 0;*/
@@ -153,7 +171,8 @@ Lives *livesDisplay;
         NSInteger j = i;
         birdPtr = [birds objectAtIndex:j];
         if (birdPtr.isFalling) {
-            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);
+            /*birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);*/
+    birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - currentSpeed*dt*dt);
         } else {
             birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
         }
@@ -182,8 +201,8 @@ Lives *livesDisplay;
         CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2));
         CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/2));*/
         
-        CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/1.5));
-        CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/1.5));
+        CGFloat y1 = (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2));
+        CGFloat y2 = (currentTrampoline.position.y+(currentTrampoline.trampolineSprite.contentSize.height/1.3));
         
         /*
          Touch meets criteria to change direction of current falling bird
@@ -210,8 +229,15 @@ Lives *livesDisplay;
             scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+1];
             [self addChild:scoreDisplay];
             
-            currentBird.fallingAccel += 1.0;
-            CCLOG(@"fallingAccel of current bird: %d", currentBird.fallingAccel);
+            // increment currentStreak
+            if (currentStreak < scoreDisplay.totalScore) {
+                currentStreak++;
+            }
+            CCLOG(@"currentStreak updated to %d", currentStreak);
+
+            
+            currentAccel += 1.0;
+            CCLOG(@"currentAccel of current bird: %f", currentAccel);
             
             //play sound
             [[SimpleAudioEngine sharedEngine] playEffect: @"bird_chirp.mp3"];
@@ -225,14 +251,14 @@ Lives *livesDisplay;
     /*
      Initialize new bird if no birds on screen
      */
-    if (currentBird.isFalling && currentBird.position.y < 420/25) {
+    if (currentBird.isFalling && currentBird.position.y < (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2)) /*currentBird.position.y < 420/25*/) {
             [self makeBird];
-    }
+    /*}*/
     
     /*
      Lose a life if a bird falls past this point
      */
-    if (currentBird.isFalling && currentBird.position.y < 420/25) {
+    /*if (currentBird.isFalling && currentBird.position.y < 420/25) {*/
         
         // if lives = 0, then jump to Game Over screen
         
@@ -240,13 +266,19 @@ Lives *livesDisplay;
         [self removeChild:livesDisplay];
         livesDisplay = [[Lives alloc] initWithLives:livesDisplay.totalLives-1];
         [self addChild:livesDisplay];
-        }
-        
+
+    
         if (livesDisplay.totalLives == 0) {
             [[CCDirector sharedDirector] replaceScene: (CCScene*)[[GameOver alloc] initWithScore: scoreDisplay.totalScore]];
-        
-    }
+        }
     
+        //set currentStreak = 0;
+        currentStreak = 0;
+        currentAccel = 9.8;
+        currentSpeed = 200 + scoreDisplay.totalScore/(currentStreak+1);
+        CCLOG(@"reset currentStreak and currentAccel");
+    }
+
 
     
 }
