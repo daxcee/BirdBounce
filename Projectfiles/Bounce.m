@@ -3,6 +3,9 @@
 #import "Score.h"
 #import "Trampoline.h"
 #import "Pause.h"
+#import "Lives.h"
+#import "GameOver.h"
+#import "SimpleAudioEngine.h"s
 
 
 #define TRAMPOLINEYPOS 420/8
@@ -23,6 +26,7 @@ NSMutableArray *paths; // list of paths
 bool initializeBird = false;
 
 Score *scoreDisplay;
+Lives *livesDisplay;
 
 @interface Bounce (PrivateMethods)
 @end
@@ -78,6 +82,10 @@ Score *scoreDisplay;
         //scoreDisplay.scoreSprite = [CCSprite spriteWithSpriteFrame : scoreDisplay.scoreLabel.displayFrame];
         [self addChild:scoreDisplay];
         //[self addChild:scoreDisplay.scoreSprite];
+        
+        //Initialize lives
+        livesDisplay = [[Lives alloc] init];
+        [self addChild: livesDisplay];
         
         [self scheduleUpdate];
         [self setUpPauseButton];
@@ -142,9 +150,9 @@ Score *scoreDisplay;
         NSInteger j = i;
         birdPtr = [birds objectAtIndex:j];
         if (birdPtr.isFalling) {
-            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt);
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);
         } else {
-            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt);
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
         }
         
     }
@@ -186,8 +194,8 @@ Score *scoreDisplay;
             //[birds replaceObjectAtIndex:idx withObject:currentBird];
             
             /*[currentBird setTexture: [[CCSprite spriteWithFile:@"upbird.png"] texture]];*/
-            CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage: @"upbird.png"];
-            [currentBird.birdSprite setTexture: tex];
+            CCTexture2D* birdIsNowFlyingImg = [[CCTextureCache sharedTextureCache] addImage: @"upbird.png"];
+            [currentBird.birdSprite setTexture: birdIsNowFlyingImg];
             
             
             // initialize new bird on a random path
@@ -198,6 +206,9 @@ Score *scoreDisplay;
             [self removeChild:scoreDisplay];
             scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+1];
             [self addChild:scoreDisplay];
+            
+            currentBird.fallingAccel += 1.0;
+            CCLOG(@"fallingAccel of current bird: %d", currentBird.fallingAccel);
             
         }
         
@@ -210,6 +221,24 @@ Score *scoreDisplay;
      */
     if (currentBird.isFalling && currentBird.position.y < 420/25) {
             [self makeBird];
+    }
+    
+    /*
+     Lose a life if a bird falls past this point
+     */
+    if (currentBird.isFalling && currentBird.position.y < 420/25) {
+        
+        // if lives = 0, then jump to Game Over screen
+        
+        // update lives
+        [self removeChild:livesDisplay];
+        livesDisplay = [[Lives alloc] initWithLives:livesDisplay.totalLives-1];
+        [self addChild:livesDisplay];
+        }
+        
+        if (livesDisplay.totalLives == 0) {
+            [[CCDirector sharedDirector] replaceScene: (CCScene*)[[GameOver alloc] initWithScore: scoreDisplay.totalScore]];
+        
     }
     
 
