@@ -8,7 +8,10 @@
 
 #import "CCSprite.h"
 
-@interface Lives : CCSprite
+@interface Lives : CCSprite {
+}
+
+-(id) initWithLives:(int) newLives;
 
 // player's total score
 @property (nonatomic, assign) int totalLives;

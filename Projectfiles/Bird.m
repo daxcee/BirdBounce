@@ -2,6 +2,8 @@
 #import "Trampoline.h"
 #import "Bounce.h"
 
+/*float fallingAccel;*/
+
 @implementation Bird
 {
 }
@@ -13,6 +15,7 @@
         self.isFalling = TRUE;
         self.isOutofScreen = false;
         self.fallingSpeed = 200;
+        self.fallingAccel = 9.8;
         self.birdSprite = [CCSprite spriteWithFile:@"downbird.png"];
         self.position = ccp(pathXPos, 480);
         [self addChild:self.birdSprite];

@@ -15,6 +15,9 @@
 //changing velocity of the bird as it falls
 @property (nonatomic, assign) int fallingSpeed;
 
+//changing acceleration of the bird as the score / streak increases
+@property (nonatomic, assign) float fallingAccel;
+
 // sprite respresenting bird
 @property (nonatomic, weak) CCSprite *birdSprite;
 
