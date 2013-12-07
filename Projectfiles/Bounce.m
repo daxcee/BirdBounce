@@ -250,21 +250,17 @@ Lives *livesDisplay;
      */
     if (currentBird.isFalling && currentBird.position.y < (currentTrampoline.position.y-(currentTrampoline.trampolineSprite.contentSize.height/2)) /*currentBird.position.y < 420/25*/) {
             [self makeBird];
-    /*}*/
     
     /*
      Lose a life if a bird falls past this point
      */
-    /*if (currentBird.isFalling && currentBird.position.y < 420/25) {*/
-        
-        // if lives = 0, then jump to Game Over screen
-        
+            
         // update lives
         [self removeChild:livesDisplay];
         livesDisplay = [[Lives alloc] initWithLives:livesDisplay.totalLives-1];
         [self addChild:livesDisplay];
 
-    
+        // if lives = 0, then jump to Game Over screen
         if (livesDisplay.totalLives == 0) {
             [[CCDirector sharedDirector] replaceScene: (CCScene*)[[GameOver alloc] initWithScore: scoreDisplay.totalScore]];
         }

@@ -33,6 +33,7 @@
 		A1AAB47718512DDE002A3EE4 /* downbird.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AAB47618512DDE002A3EE4 /* downbird.png */; };
 		A1AAB47A1851347A002A3EE4 /* Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB47918513479002A3EE4 /* Pause.m */; };
 		A1AAB47C1851370D002A3EE4 /* pausebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AAB47B1851370D002A3EE4 /* pausebackground.png */; };
+		A1B8A6121852B0BE00942363 /* HighScores.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1B8A6111852B0BE00942363 /* HighScores.plist */; };
 		A607B284183DB29C009272E4 /* Trampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B283183DB29C009272E4 /* Trampoline.m */; };
 		A6211F6A184FE494002A0128 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = A6211F69184FE494002A0128 /* Score.m */; };
 		A6C2CE0D182D985D0015CF2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0B182D985D0015CF2D /* background.png */; };
@@ -113,6 +114,7 @@
 		A1AAB47818513479002A3EE4 /* Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pause.h; sourceTree = "<group>"; };
 		A1AAB47918513479002A3EE4 /* Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pause.m; sourceTree = "<group>"; };
 		A1AAB47B1851370D002A3EE4 /* pausebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebackground.png; sourceTree = "<group>"; };
+		A1B8A6111852B0BE00942363 /* HighScores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HighScores.plist; sourceTree = "<group>"; };
 		A607B282183DB29C009272E4 /* Trampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trampoline.h; path = ../Trampoline.h; sourceTree = "<group>"; };
 		A607B283183DB29C009272E4 /* Trampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trampoline.m; path = ../Trampoline.m; sourceTree = "<group>"; };
 		A6211F68184FE494002A0128 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Score.h; path = ../Score.h; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				A1AAB47918513479002A3EE4 /* Pause.m */,
 				A197D87F1851ED5800AC1F00 /* GameOver.h */,
 				A197D8801851ED5900AC1F00 /* GameOver.m */,
+				A1B8A6111852B0BE00942363 /* HighScores.plist */,
 				DCC1A39413A94F1A005BD75D /* Resources */,
 				DCC1A3CF13A94F2C005BD75D /* Supporting Files */,
 			);
@@ -480,6 +483,7 @@
 				A197D8751851D2C100AC1F00 /* pauseButton.png in Resources */,
 				A1251C121852600B0099643E /* gameoverbackground.png in Resources */,
 				A1251C14185262330099643E /* bird_chirp.mp3 in Resources */,
+				A1B8A6121852B0BE00942363 /* HighScores.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

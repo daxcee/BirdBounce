@@ -41,6 +41,7 @@ CGFloat screenHeight;
 
     if( (self=[super init]))
     {
+        CCLOG(@"entering game over!");
         /*
          generalized dimensions
          */
@@ -48,6 +49,45 @@ CGFloat screenHeight;
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
         
+        /*
+         Checking for high score
+         */
+        
+        //this reads the plist and fetches the three highest scores already stored
+        NSMutableArray *highScoresArray = [NSMutableArray arrayWithContentsOfFile: @"HighScores.plist"];
+        NSLog(@"array = %@", highScoresArray);
+        int arraySize = [highScoresArray count];
+        
+        
+        //this will show the plist on the game over screen
+        
+        
+        /*for (int i = 0; i < arraySize; i++) {
+            NSInteger j = i + 1;
+            int oldHighScore = [highScoresArray objectAtIndex: j];
+            if (highScore > oldHighScore) {
+                NSInteger newHigh = highScore;
+                [highScoresArray replaceObjectAtIndex:j withObject: newHigh];
+            }
+        }
+                            
+                            /* for reference
+                             for(int i = 0; i < [birds count]; i++)
+                            {
+                                NSInteger j = i;
+                                birdPtr = [birds objectAtIndex:j];
+                                if (birdPtr.isFalling) {
+                                    /*birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);
+                                    birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - currentSpeed*dt*dt);
+                                } else {
+                                    birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
+                                }
+                                
+                            }*/
+        
+                
+
+    
         
         /*
          setting up the game over screen and the menu option to restart
@@ -71,29 +111,39 @@ CGFloat screenHeight;
         [self addChild: gameOverMenu];
         
         /*
-         setting up high score
+         setting up leader scoreboard
          */
         
-        /*self.totalScore = newScore;*/
-        /*self.position = ccp(320/6*5, 465);*/
-        NSString * scoreString = [[NSString alloc] initWithFormat:@"score\n %d", highScore];
+        NSString* leaderString = [[NSString alloc] initWithFormat:@"all-time high scores\n %@: %@\n %@: %@ \n %@: %@",
+                                  [highScoresArray objectAtIndex: 0],[highScoresArray objectAtIndex: 1],
+                                  [highScoresArray objectAtIndex: 2],[highScoresArray objectAtIndex: 3],
+                                  [highScoresArray objectAtIndex: 4],[highScoresArray objectAtIndex: 5]];
+        NSLog(@"%@",leaderString);
+        CCLabelTTF *leaderLabel = [CCLabelTTF labelWithString: leaderString
+                                                     fontName: @"Marker Felt"
+                                                     fontSize: 20];
+        
+        leaderLabel.color = ccc3(255, 255, 255);
+        CCSprite *leaderSprite = [CCSprite spriteWithSpriteFrame : leaderLabel.displayFrame];
+        leaderLabel.position = ccp(screenWidth/2, screenHeight/2+screenHeight/9);
+        [self addChild: leaderLabel];
+        [self addChild: leaderSprite];
+        
+        
+        /*
+         setting up your high score
+         */
+        
+        NSString * scoreString = [[NSString alloc] initWithFormat:@"your high score\n %d", highScore];
         CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:scoreString
                                              fontName:@"Marker Felt"
                                              fontSize:20];
         scoreLabel.color = ccc3(255, 255, 255);
-        scoreLabel.position = ccp(320/2, 310);
-        /*CCSprite *scoreSprite = [CCSprite spriteWithSpriteFrame : self.scoreLabel.displayFrame];*/
+        scoreLabel.position = ccp(screenWidth/2, screenHeight/2-screenHeight/10);
         [self addChild:scoreLabel];
-        /*[self addChild:self.scoreSprite];*/
-        
-        
         
         // position your pause menu in the center of your layer
-        gameOverMenu.position = ccp(screenWidth/2, screenHeight/2);
-        
-        
-        
-        
+        gameOverMenu.position = ccp(screenWidth/2, screenHeight/2-75);
         
     }
     return self;
