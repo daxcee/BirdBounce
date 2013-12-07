@@ -24,6 +24,7 @@ NSMutableArray *trampolines; // list of trampolines
 NSMutableArray *paths; // list of paths
 
 /*int currentStreak;*/
+float speedIncrement = 15;
 
 bool initializeBird = false;
 
@@ -38,6 +39,7 @@ Lives *livesDisplay;
 {
     int currentStreak;
     float currentAccel;
+    float initialSpeed;
     float currentSpeed;
 }
 
@@ -53,7 +55,8 @@ Lives *livesDisplay;
         //set up currentStreak (== 0) and currentAccel (==9.8)
         currentStreak = 0;
         currentAccel = 9.8;
-        currentSpeed = 200;
+        initialSpeed = 200;
+        currentSpeed = initialSpeed;
         
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
         /*sprite.opacity = 0;*/
@@ -167,11 +170,15 @@ Lives *livesDisplay;
     {
         NSInteger j = i;
         birdPtr = [birds objectAtIndex:j];
+        
         if (birdPtr.isFalling) {
             /*birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);*/
-    birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - currentSpeed*dt*dt);
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - currentSpeed*dt);
         } else {
-            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
+            /*
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + currentSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
+             */
+            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + currentSpeed*dt);
         }
         
     }
@@ -223,7 +230,9 @@ Lives *livesDisplay;
             
             // update score
             [self removeChild:scoreDisplay];
-            scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+1];
+            float scoreIncrement = (currentSpeed - initialSpeed)/(speedIncrement*2) + 1;
+            CCLOG(@"scoreIncrement %f", scoreIncrement);
+            scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+scoreIncrement];
             [self addChild:scoreDisplay];
             
             // increment currentStreak
@@ -267,8 +276,8 @@ Lives *livesDisplay;
     
         //set currentStreak = 0;
         currentStreak = 0;
-        currentAccel = 9.8;
-        currentSpeed = 200 + scoreDisplay.totalScore/(currentStreak+1);
+//        currentAccel = 9.8;
+//        currentSpeed = 200 + scoreDisplay.totalScore/(currentStreak+1);
         CCLOG(@"reset currentStreak and currentAccel");
     }
 
@@ -276,13 +285,22 @@ Lives *livesDisplay;
     
 }
 
+/*
+ Initialize new bird on a random path
+ */
 - (void) makeBird
 {
-    // initialize new bird on a random path
+    // update the falling speed in proportion to the currentStreak
+    if (currentStreak != 0 && (currentStreak%2) == 0) {
+        CCLOG(@"currentSpeed %f", currentSpeed);
+        currentSpeed = currentSpeed + speedIncrement;
+    }
+    
     NSNumber *randomPath = [paths objectAtIndex:random()%[paths count]];
     Bird *newBird = [[Bird alloc] initWithPosition: [randomPath intValue]];
     [birds addObject:newBird];
     [self addChild:newBird z:1];
+    
 }
 
 @end

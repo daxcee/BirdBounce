@@ -25,7 +25,6 @@
         self.scoreSprite = [CCSprite spriteWithSpriteFrame : self.scoreLabel.displayFrame];
         [self addChild:self.scoreLabel];
         [self addChild:self.scoreSprite];
-
     }
     return self;
 }
