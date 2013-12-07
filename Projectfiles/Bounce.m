@@ -41,6 +41,7 @@ Lives *livesDisplay;
     float currentAccel;
     float initialSpeed;
     float currentSpeed;
+    float scoreBasedOnSpeedIncrement;
 }
 
 
@@ -57,6 +58,7 @@ Lives *livesDisplay;
         currentAccel = 9.8;
         initialSpeed = 200;
         currentSpeed = initialSpeed;
+        scoreBasedOnSpeedIncrement = currentSpeed;
         
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
         /*sprite.opacity = 0;*/
@@ -230,7 +232,8 @@ Lives *livesDisplay;
             
             // update score
             [self removeChild:scoreDisplay];
-            float scoreIncrement = (currentSpeed - initialSpeed)/(speedIncrement*2) + 1;
+            /*scoreBasedOnSpeedIncrement = currentSpeed;*/
+            float scoreIncrement = ((scoreBasedOnSpeedIncrement)/(speedIncrement*3) + 1);
             CCLOG(@"scoreIncrement %f", scoreIncrement);
             scoreDisplay = [[Score alloc] initWithScore:scoreDisplay.totalScore+scoreIncrement];
             [self addChild:scoreDisplay];
@@ -273,6 +276,9 @@ Lives *livesDisplay;
         if (livesDisplay.totalLives == 0) {
             [[CCDirector sharedDirector] replaceScene: (CCScene*)[[GameOver alloc] initWithScore: scoreDisplay.totalScore]];
         }
+        
+        //if we lose a life, gaining we half what points we can earn from the next bounce
+        scoreBasedOnSpeedIncrement = scoreBasedOnSpeedIncrement / 2;
     
         //set currentStreak = 0;
         currentStreak = 0;
@@ -294,6 +300,7 @@ Lives *livesDisplay;
     if (currentStreak != 0 && (currentStreak%2) == 0) {
         CCLOG(@"currentSpeed %f", currentSpeed);
         currentSpeed = currentSpeed + speedIncrement;
+        scoreBasedOnSpeedIncrement = scoreBasedOnSpeedIncrement + speedIncrement;
     }
     
     NSNumber *randomPath = [paths objectAtIndex:random()%[paths count]];

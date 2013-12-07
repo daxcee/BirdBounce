@@ -126,6 +126,7 @@ CGFloat screenHeight;
         leaderLabel.color = ccc3(255, 255, 255);
         CCSprite *leaderSprite = [CCSprite spriteWithSpriteFrame : leaderLabel.displayFrame];
         leaderLabel.position = ccp(screenWidth/2, screenHeight/2+screenHeight/9);
+        leaderSprite.position = ccp(screenWidth/2, screenHeight/2+screenHeight/9);
         [self addChild: leaderLabel];
         [self addChild: leaderSprite];
         
