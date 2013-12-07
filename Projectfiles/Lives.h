@@ -1,11 +1,3 @@
-//
-//  Lives.h
-//  Bounce
-//
-//  Created by Linda He on 12/6/13.
-//
-//
-
 #import "CCSprite.h"
 
 @interface Lives : CCSprite {
@@ -13,13 +5,23 @@
 
 -(id) initWithLives:(int) newLives;
 
-// player's total score
+// player's total lives
 @property (nonatomic, assign) int totalLives;
 
-// score sprite
+// lives sprite
 @property (nonatomic, weak) CCSprite *livesSprite;
 
-// score sprite
+// lives label
 @property (nonatomic, weak) CCLabelTTF *livesLabel;
+
+
+// lives sprite 1
+@property (nonatomic, weak) CCSprite *livesSprite1;
+
+// lives sprite 2
+@property (nonatomic, weak) CCSprite *livesSprite2;
+
+// lives sprite 3
+@property (nonatomic, weak) CCSprite *livesSprite3;
 
 @end
