@@ -82,35 +82,32 @@ CGFloat screenHeight;
         NSNumber * oldHighMid = [highScoresArray objectAtIndex: 3];
         NSNumber * oldHighBot = [highScoresArray objectAtIndex: 5];
         
-        if (newHigh > oldHighTop) {
+        if ([newHigh doubleValue] > [oldHighTop doubleValue]) {
             [highScoresArray replaceObjectAtIndex:1 withObject: newHigh];
             [highScoresArray replaceObjectAtIndex:3 withObject: oldHighTop];
             [highScoresArray replaceObjectAtIndex:5 withObject: oldHighMid];
         }
-        if (newHigh <= oldHighTop && newHigh > oldHighMid) {
+        else if ([newHigh doubleValue] <= [oldHighTop doubleValue] && [newHigh doubleValue] > [oldHighMid doubleValue]) {
             [highScoresArray replaceObjectAtIndex:3 withObject: newHigh];
             [highScoresArray replaceObjectAtIndex:5 withObject: oldHighMid];
         }
         
-        if (newHigh <= oldHighMid && newHigh > oldHighBot) {
+        else if ([newHigh doubleValue] <= [oldHighMid doubleValue] && [newHigh doubleValue] > [oldHighBot doubleValue]) {
             [highScoresArray replaceObjectAtIndex:5 withObject: newHigh];
         }
         
-        /*for (int i = 0; i < arraySize; i+=2) {
-            int j = i + 1;
-            NSNumber *oldHighScore = [highScoresArray objectAtIndex: j];
-            if (newHigh > oldHighScore && i == 0) {
-                NSNumber *oldHighScore2 = [highScoresArray objectAtIndex:j+2];
-                [highScoresArray replaceObjectAtIndex:j withObject: newHigh];
-                [highScoresArray replaceObjectAtIndex:j+2 withObject: oldHighScore];
-                [highScoresArray replaceObjectAtIndex:j+4 withObject: oldHighScore2];
-            } else if (newHigh > oldHighScore && i == 2) {
-                [highScoresArray replaceObjectAtIndex: j withObject: newHigh];
-                [highScoresArray replaceObjectAtIndex:j+2 withObject: oldHighScore];
-            } else if (newHigh > oldHighScore && i == 4) {
-                [highScoresArray replaceObjectAtIndex: j withObject: newHigh];
-            }
-        }*/
+        //have player input their name if they get a high score
+        /*[[CCDirector sharedDirector] replaceScene: (CCScene*)[[GameOver alloc] initWithScore: scoreDisplay.totalScore]]*/
+        /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"new high score!" message:@"Enter your name" delegate:self cancelButtonTitem:@"Done" otherButtonTitles:nil];
+        
+        UIAlertView *alert = [[UIAlertView] alloc]*/
+        
+        
+        /*CGRect frame = CGRectMAke(10, 200, 300, 40);
+        UITextField *text = [[UITextField alloc] initWithFrame:frame];
+        UIView *view = [[UIView alloc] initWithFrame:frame];*/
+        
+        
         
         
         
