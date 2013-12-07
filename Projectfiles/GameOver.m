@@ -54,40 +54,40 @@ CGFloat screenHeight;
          */
         
         //this reads the plist and fetches the three highest scores already stored
-        NSMutableArray *highScoresArray = [NSMutableArray arrayWithContentsOfFile: @"HighScores.plist"];
-        NSLog(@"array = %@", highScoresArray);
+        NSString *documentsDirectory1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filePath1 = [documentsDirectory1 stringByAppendingFormat:@"HighScores.plist"];
+        NSMutableArray *highScoresArray = [NSMutableArray arrayWithContentsOfFile: filePath1];
+        NSLog(@"what the plist contained before the game = %@", highScoresArray);
         int arraySize = [highScoresArray count];
         
         
         //this will show the plist on the game over screen
         
-        
-        /*for (int i = 0; i < arraySize; i++) {
-            NSInteger j = i + 1;
-            int oldHighScore = [highScoresArray objectAtIndex: j];
-            if (highScore > oldHighScore) {
-                NSInteger newHigh = highScore;
+        NSNumber * newHigh = [NSNumber numberWithInt:highScore];
+        NSLog
+        (@"this current session's highScore: %d", highScore);
+        for (int i = 0; i < arraySize; i+=2) {
+            int j = i + 1;
+            NSNumber *oldHighScore = [highScoresArray objectAtIndex: j];
+            if (newHigh > oldHighScore) {
                 [highScoresArray replaceObjectAtIndex:j withObject: newHigh];
             }
         }
-                            
-                            /* for reference
-                             for(int i = 0; i < [birds count]; i++)
-                            {
-                                NSInteger j = i;
-                                birdPtr = [birds objectAtIndex:j];
-                                if (birdPtr.isFalling) {
-                                    /*birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);
-                                    birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - currentSpeed*dt*dt);
-                                } else {
-                                    birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + birdPtr.fallingSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
-                                }
-                                
-                            }*/
         
-                
-
-    
+        
+        
+        /*NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentFolder = [path objectAtIndex: 0];
+        NSString *filePath = [documentFolder stringByAppendingFormat:@"HighScores.plist"];
+        [highScoresArray writeToFile:filePath atomically:YES];*/
+        
+        NSLog(@"highScoresArray currently contains: %@", highScoresArray);
+        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filePath = [documentsDirectory stringByAppendingFormat:@"HighScores.plist"];
+        [highScoresArray writeToFile: filePath atomically:YES];
+        
+        NSMutableArray *newArray = [NSMutableArray arrayWithContentsOfFile:filePath];
+        NSLog(@"newArray contains: %@", newArray);
         
         /*
          setting up the game over screen and the menu option to restart
