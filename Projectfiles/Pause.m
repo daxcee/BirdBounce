@@ -1,11 +1,3 @@
-//
-//  Pause.m
-//  Bounce
-//
-//  Created by Linda He on 12/5/13.
-//
-//
-
 #import "Pause.h"
 #import "StartMenu.h"
 #import "Bounce.h"

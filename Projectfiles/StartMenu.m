@@ -35,6 +35,7 @@ id fadeOut;
                                                            selectedImage:@"startbutton.png"
                                                                   target:self 
                                                                 selector:@selector(launchGame:)];
+    
     CCMenuItemImage * instructionButton = [CCMenuItemImage itemWithNormalImage:@"instructionbutton.png"
                                                                  selectedImage:@"instructionbutton.png"
                                                                         target: self

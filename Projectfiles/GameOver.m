@@ -1,14 +1,7 @@
-//
-//  GameOver.m
-//  Bounce
-//
-//  Created by Linda He on 12/6/13.
-//
-//
-
 #import "GameOver.h"
 #import "Bounce.h"
 #import "Score.h"
+#import "StartMenu.h"
 
 CGFloat screenWidth;
 CGFloat screenHeight;
@@ -109,9 +102,7 @@ CGFloat screenHeight;
         UIView *view = [[UIView alloc] initWithFrame:frame];*/
         
         
-        
-        
-        
+    
         /*NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentFolder = [path objectAtIndex: 0];
         NSString *filePath = [documentFolder stringByAppendingFormat:@"HighScores.plist"];
@@ -145,10 +136,16 @@ CGFloat screenHeight;
                                     selectedImage:@"restart.png"
                                     target:self
                                     selector:@selector(reStart:)];
-        restart.position = ccp(0, -50);
+        CCMenuItemImage *goToStart = [CCMenuItemImage
+                                    itemWithNormalImage:@"mainmenu.png"
+                                    selectedImage:@"mainmenu.png"
+                                    target:self
+                                    selector:@selector(jumpToMain:)];
+        restart.position = ccp(0, -40);
+        goToStart.position = ccp(0, -110);
         
         
-        CCMenu * gameOverMenu = [CCMenu menuWithItems: restart, nil];
+        CCMenu * gameOverMenu = [CCMenu menuWithItems: restart, goToStart, nil];
         
         [self addChild: gameOverMenu];
         
@@ -195,6 +192,11 @@ CGFloat screenHeight;
 - (void) reStart: (id) sender
 {
     [[CCDirector sharedDirector] replaceScene: (CCScene*)[[Bounce alloc] init]];
+}
+
+- (void) jumpToMain: (id) sender
+{
+    [[CCDirector sharedDirector] replaceScene: (CCScene*)[[StartMenu alloc] init]];
 }
 
 @end

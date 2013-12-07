@@ -175,12 +175,8 @@ Lives *livesDisplay;
         birdPtr = [birds objectAtIndex:j];
         
         if (birdPtr.isFalling) {
-            /*birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - birdPtr.fallingSpeed*dt - birdPtr.fallingSpeed*birdPtr.fallingAccel*dt*dt);*/
             birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y - currentSpeed*dt);
         } else {
-            /*
-            birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + currentSpeed*dt + birdPtr.fallingSpeed*(birdPtr.fallingAccel/3)*dt*dt);
-             */
             birdPtr.position = ccp(birdPtr.position.x, birdPtr.position.y + currentSpeed*dt);
         }
         

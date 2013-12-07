@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>Tsion</string>
+	<string>Top Score</string>
 	<integer>0</integer>
-	<string>Linda</string>
+	<string>2nd Top Score</string>
 	<integer>0</integer>
-	<string>Kate &amp; Yerin</string>
+	<string>3rd Top Score</string>
 	<integer>0</integer>
 </array>
 </plist>

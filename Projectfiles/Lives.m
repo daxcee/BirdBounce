@@ -1,11 +1,3 @@
-//
-//  Lives.m
-//  Bounce
-//
-//  Created by Linda He on 12/6/13.
-//
-//
-
 #import "Lives.h"
 #import "Bounce.h"
 
@@ -24,7 +16,7 @@
     if ((self = [super init]))
     {
 
-        /*
+        /* // Method 1
         self.totalLives = newLives;
         self.position = ccp(320/6*5, 465-20);
         livesString = [[NSString alloc] initWithFormat:@"Lives Left: %d", self.totalLives];

@@ -35,6 +35,10 @@
 		A1AAB47C1851370D002A3EE4 /* pausebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AAB47B1851370D002A3EE4 /* pausebackground.png */; };
 		A607B284183DB29C009272E4 /* Trampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B283183DB29C009272E4 /* Trampoline.m */; };
 		A6103FF81852F428003F41C5 /* HighScores.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6103FF71852F428003F41C5 /* HighScores.plist */; };
+		A6103FFB1852FAE2003F41C5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6103FF91852FAE2003F41C5 /* Icon.png */; };
+		A6103FFC1852FAE2003F41C5 /* mainmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = A6103FFA1852FAE2003F41C5 /* mainmenu.png */; };
+		A6103FFE1852FE92003F41C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6103FFD1852FE92003F41C5 /* Images.xcassets */; };
+		A61040001852FF49003F41C5 /* Icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A6103FFF1852FF49003F41C5 /* Icon~iphone.png */; };
 		A6211F6A184FE494002A0128 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = A6211F69184FE494002A0128 /* Score.m */; };
 		A6C2CE0D182D985D0015CF2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0B182D985D0015CF2D /* background.png */; };
 		A6C2CE0E182D985D0015CF2D /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CE0C182D985D0015CF2D /* ball.png */; };
@@ -120,6 +124,10 @@
 		A607B282183DB29C009272E4 /* Trampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trampoline.h; path = ../Trampoline.h; sourceTree = "<group>"; };
 		A607B283183DB29C009272E4 /* Trampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trampoline.m; path = ../Trampoline.m; sourceTree = "<group>"; };
 		A6103FF71852F428003F41C5 /* HighScores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HighScores.plist; sourceTree = "<group>"; };
+		A6103FF91852FAE2003F41C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A6103FFA1852FAE2003F41C5 /* mainmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainmenu.png; sourceTree = "<group>"; };
+		A6103FFD1852FE92003F41C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Bounce-iOS/Images.xcassets"; sourceTree = "<group>"; };
+		A6103FFF1852FF49003F41C5 /* Icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~iphone.png"; sourceTree = "<group>"; };
 		A6211F68184FE494002A0128 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Score.h; path = ../Score.h; sourceTree = "<group>"; };
 		A6211F69184FE494002A0128 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Score.m; path = ../Score.m; sourceTree = "<group>"; };
 		A6C2CE0B182D985D0015CF2D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 		DCC1A0D613A94EC0005BD75D = {
 			isa = PBXGroup;
 			children = (
+				A6103FFD1852FE92003F41C5 /* Images.xcassets */,
 				DCC1A38C13A94F1A005BD75D /* Projectfiles */,
 				DCC1A0F713A94ED5005BD75D /* Projectfiles-iOS */,
 				DCC1A26413A94EE6005BD75D /* Projectfiles-Mac */,
@@ -331,6 +340,9 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A6103FF91852FAE2003F41C5 /* Icon.png */,
+				A6103FFF1852FF49003F41C5 /* Icon~iphone.png */,
+				A6103FFA1852FAE2003F41C5 /* mainmenu.png */,
 				A6E42C3D1852E9A100F4EAA9 /* 2hearts.png */,
 				A1165E4F1834306300DA5E7B /* gamelayerbg.png */,
 				A1AAB47618512DDE002A3EE4 /* downbird.png */,
@@ -459,6 +471,7 @@
 				DCC1A0FE13A94ED5005BD75D /* Icon-72.png in Resources */,
 				DCC1A10013A94ED5005BD75D /* Icon-Small-50.png in Resources */,
 				DCC1A10213A94ED5005BD75D /* Icon-Small.png in Resources */,
+				A61040001852FF49003F41C5 /* Icon~iphone.png in Resources */,
 				A6C2CE10182D9CFA0015CF2D /* redball.png in Resources */,
 				DCC1A10413A94ED5005BD75D /* Icon-Small@2x.png in Resources */,
 				DCC1A10613A94ED5005BD75D /* Icon.png in Resources */,
@@ -477,6 +490,7 @@
 				A12B8ACD183D7A0300B124DA /* greenbouncer.png in Resources */,
 				A12B8ACE183D7A0300B124DA /* redbouncer.png in Resources */,
 				A12B8ACF183D7A0300B124DA /* startbutton.png in Resources */,
+				A6103FFC1852FAE2003F41C5 /* mainmenu.png in Resources */,
 				A6103FF81852F428003F41C5 /* HighScores.plist in Resources */,
 				A12B8AD0183D7A0300B124DA /* upbird.png in Resources */,
 				A12B8AD5183D864E00B124DA /* startmenu2.png in Resources */,
@@ -491,7 +505,9 @@
 				A6E42C3C1852E91100F4EAA9 /* 3hearts.png in Resources */,
 				A1AAB47C1851370D002A3EE4 /* pausebackground.png in Resources */,
 				A197D8721851D2BC00AC1F00 /* restart.png in Resources */,
+				A6103FFE1852FE92003F41C5 /* Images.xcassets in Resources */,
 				A197D8731851D2BC00AC1F00 /* resume.png in Resources */,
+				A6103FFB1852FAE2003F41C5 /* Icon.png in Resources */,
 				A197D8751851D2C100AC1F00 /* pauseButton.png in Resources */,
 				A1251C121852600B0099643E /* gameoverbackground.png in Resources */,
 				A6E42C3E1852E9A100F4EAA9 /* 2hearts.png in Resources */,
@@ -580,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCFA90EF13B4F6F7009DD35A /* BuildSettings-Debug-iOS.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Debug;
 		};
@@ -587,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCFA90F013B4F811009DD35A /* BuildSettings-Release-iOS.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Release;
 		};
