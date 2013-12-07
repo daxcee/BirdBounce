@@ -49,6 +49,7 @@ Lives *livesDisplay;
 {
 	if (self = [super init])
 	{
+        
         //set up bird chirping noise
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"bird_chirp.mp3"];
         [SimpleAudioEngine sharedEngine].effectsVolume = 0.05;

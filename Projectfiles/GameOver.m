@@ -55,7 +55,8 @@ CGFloat screenHeight;
         
         //this reads the plist and fetches the three highest scores already stored
         NSString *documentsDirectory1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *filePath1 = [documentsDirectory1 stringByAppendingFormat:@"HighScores.plist"];
+        /*NSString *filePath1 = [documentsDirectory1 stringByAppendingFormat:@"HighScores.plist"];*/
+        NSString *filePath1 = [[NSBundle mainBundle] pathForResource:@"HighScores" ofType:@"plist"];
         NSMutableArray *highScoresArray = [NSMutableArray arrayWithContentsOfFile: filePath1];
         NSLog(@"what the plist contained before the game = %@", highScoresArray);
         int arraySize = [highScoresArray count];
@@ -118,7 +119,13 @@ CGFloat screenHeight;
         
         NSLog(@"highScoresArray currently contains: %@", highScoresArray);
         NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *filePath = [documentsDirectory stringByAppendingFormat:@"HighScores.plist"];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"HighScores" ofType:@"plist"];
+        
+        
+        bool fileExists = [[NSFileManager defaultManager]fileExistsAtPath:filePath];
+        
+        NSLog(@"fileExists = %d", fileExists);
+        
         [highScoresArray writeToFile: filePath atomically:YES];
         
         NSMutableArray *newArray = [NSMutableArray arrayWithContentsOfFile:filePath];
