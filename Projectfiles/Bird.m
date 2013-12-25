@@ -17,6 +17,8 @@
         self.fallingSpeed = 200;
         self.fallingAccel = 9.8;
         self.birdSprite = [CCSprite spriteWithFile:@"downbird.png"];
+        self.birdSprite.scaleX = 2;
+        self.birdSprite.scaleY = 2;
         self.position = ccp(pathXPos, 480);
         [self addChild:self.birdSprite];
     }

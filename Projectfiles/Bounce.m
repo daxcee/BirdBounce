@@ -30,6 +30,9 @@ bool initializeBird = false;
 
 Score *scoreDisplay;
 Lives *livesDisplay;
+CGFloat screenWidth;
+CGFloat screenHeight;
+
 
 @interface Bounce (PrivateMethods)
 
@@ -54,6 +57,11 @@ Lives *livesDisplay;
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"bird_chirp.mp3"];
         [SimpleAudioEngine sharedEngine].effectsVolume = 0.05;
         
+        //set up screen dimensions
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        screenWidth = screenRect.size.width;
+        screenHeight = screenRect.size.height;
+        
         //set up currentStreak (== 0) and currentAccel (==9.8)
         currentStreak = 0;
         currentAccel = 9.8;
@@ -62,8 +70,11 @@ Lives *livesDisplay;
         scoreBasedOnSpeedIncrement = currentSpeed;
         
         CCSprite *sprite = [CCSprite spriteWithFile:@"gamelayerbg.png"];
+        sprite.scaleX = screenWidth/sprite.contentSize.width;
+        sprite.scaleY = screenHeight/sprite.contentSize.height;
+        sprite.position = ccp(screenWidth/2, screenHeight/2);
         /*sprite.opacity = 0;*/
-        sprite.anchorPoint = CGPointZero;
+        /*sprite.anchorPoint = CGPointZero;*/
         [self addChild:sprite z:-1];
         /*[sprite runAction: [CCFadeIn actionWithDuration:0.5]];*/
         
@@ -78,6 +89,8 @@ Lives *livesDisplay;
         // Initialize red bird (left)
         trampoline1 = [[Trampoline alloc] initWithPosition: PATH1];
         trampoline1.trampolineSprite = [CCSprite spriteWithFile:@"redbouncer.png"];
+        trampoline1.trampolineSprite.scaleX = 2;
+        trampoline1.trampolineSprite.scaleY = 2;
         [trampoline1 addChild:trampoline1.trampolineSprite];
         [trampolines addObject:trampoline1];
         [self addChild:trampoline1 z:1];
@@ -85,6 +98,8 @@ Lives *livesDisplay;
         // Initialize green bird (center)
         trampoline2 = [[Trampoline alloc] initWithPosition: PATH2];
         trampoline2.trampolineSprite = [CCSprite spriteWithFile:@"greenbouncer.png"];
+        trampoline2.trampolineSprite.scaleX = 2;
+        trampoline2.trampolineSprite.scaleY = 2;
         [trampoline2 addChild:trampoline2.trampolineSprite];
         [trampolines addObject:trampoline2];
         [self addChild:trampoline2 z:1];
@@ -92,6 +107,8 @@ Lives *livesDisplay;
         // Initialize blue bird (center)
         trampoline3 = [[Trampoline alloc] initWithPosition: PATH3];
         trampoline3.trampolineSprite = [CCSprite spriteWithFile:@"bluebouncer.png"];
+        trampoline3.trampolineSprite.scaleX = 2;
+        trampoline3.trampolineSprite.scaleY = 2;
         [trampoline3 addChild:trampoline3.trampolineSprite];
         [trampolines addObject:trampoline3];
         [self addChild:trampoline3 z:1];
@@ -129,7 +146,12 @@ Lives *livesDisplay;
                                                                 selector:@selector(pauseGame:)];
     
     CCMenu *pauseButtonMenu = [CCMenu menuWithItems: pauseButton, nil];
-    pauseButtonMenu.position = ccp(20, 480 - 20);
+    //pauseButtonMenu.position = ccp(20, 480-20);
+    
+
+    pauseButtonMenu.position = ccp(screenWidth/9, screenHeight - screenWidth/9);
+    pauseButton.scaleX = 2;
+    pauseButton.scaleY = 2;
     [self addChild: pauseButtonMenu];
 }
 

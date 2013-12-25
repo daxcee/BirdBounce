@@ -13,14 +13,18 @@ id fadeOut;
     if ((self = [super init]))
 	{
 		CCLOG(@"%@ init", NSStringFromClass([self class]));
-        CCSprite *background = [CCSprite spriteWithFile:@"startmenu2.png"];
-        background.position = ccp(background.contentSize.width/2, background.contentSize.height/2);
-        [self addChild: background z:0];
-        [self setUpStartMenu];
-        
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
+        
+        
+        CCSprite *background = [CCSprite spriteWithFile:@"startmenu2.png"];
+        /*background.position = ccp(background.contentSize.width/2, background.contentSize.height/2);*/
+        background.scaleX = screenWidth/background.contentSize.width;
+        background.scaleY = screenHeight/background.contentSize.height;
+        background.position = ccp(screenWidth/2, screenHeight/2);
+        [self addChild: background];
+        [self setUpStartMenu];
         
         fadeIn = [CCFadeIn actionWithDuration:0.5];
         fadeOut = [CCFadeOut actionWithDuration: 0.5];
@@ -30,7 +34,13 @@ id fadeOut;
 }
 
 -(void) setUpStartMenu
+
 {
+    
+    CCSprite * startbutt = [CCSprite spriteWithFile:@"startbutton.png"];
+    CCSprite * instrubutt = [CCSprite spriteWithFile:@"instructionbutton.png"];
+    startbutt.scale = 2;
+    instrubutt.scale = 2;
     CCMenuItemImage * startButton = [CCMenuItemImage itemWithNormalImage:@"startbutton.png"
                                                            selectedImage:@"startbutton.png"
                                                                   target:self 
@@ -40,10 +50,14 @@ id fadeOut;
                                                                  selectedImage:@"instructionbutton.png"
                                                                         target: self
                                                                       selector:@selector(launchInstructionOne:)];
+    /*CCMenuItemImage * restartButton = [CCMenuItemImage itemWithNormalImage:@"restart.png"
+                                                                 selectedImage:@"restart.png"
+                                                                        target: self
+                                                                      selector:@selector(launchInstructionOne:)];*/
     
     CCMenu *menu = [CCMenu menuWithItems: startButton, instructionButton, nil];
     menu.position = ccp(320/2, 260-(startButton.contentSize.height/2));
-    instructionButton.position = ccp(screenWidth/2, screenHeight - instructionButton.contentSize.height*1.35);
+    instructionButton.position = ccp(0, -screenHeight/6);
     CCLOG(@"contentSize of StartButton = %f", menu.contentSize.width);
     [self addChild: menu];
 }
